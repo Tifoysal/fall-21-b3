@@ -14,7 +14,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url('/css/bootstrap.min.css')}}" rel="stylesheet" >
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -52,22 +52,18 @@
 @include('admin.partials.header')
 
 
-
 <div class="container-fluid">
     <div class="row">
 
+    @include('admin.partials.nav')
 
-@include('admin.partials.sidebar')
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
             </div>
 
-
-           @yield('content')
-
-
+            @yield('content')
 
         </main>
     </div>
@@ -76,8 +72,8 @@
 
 <script src="https://getbootstrap.com/docs/5.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" ></script>
 <script src="https://getbootstrap.com/docs/5.1/examples/dashboard/dashboard.js"></script>
 </body>
 </html>
