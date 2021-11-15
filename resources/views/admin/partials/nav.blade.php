@@ -21,6 +21,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('employee.list')}}">
+                    <span data-feather="file"></span>
+                    Employees
+                </a>
+            </li>
+
         </ul>
 
     </div>

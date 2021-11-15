@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +29,9 @@ Route::group(['prefix'=>'admin-portal'],function(){
     Route::get('/products',[ProductController::class,'productList'])->name('admin.products');
     Route::get('/products/create',[ProductController::class,'productCreate'])->name('admin.products.create');
     Route::post('/products/store',[ProductController::class,'store'])->name('admin.product.store');
+
+    // employee
+    Route::get('/employee/list',[EmployeeController::class,'list'])->name('employee.list');
+    Route::get('/employee/create',[EmployeeController::class,'create'])->name('employee.create');
+    Route::post('/employee/store',[EmployeeController::class,'store'])->name('employee.store');
 });

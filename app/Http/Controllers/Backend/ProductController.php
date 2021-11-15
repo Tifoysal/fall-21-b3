@@ -11,7 +11,9 @@ class ProductController extends Controller
 
     public function productList()
     {
-        return view('admin.layouts.product-list');
+        $products= Product::all();
+        // dd($products);
+        return view('admin.layouts.product-list',compact('products'));
     }
 
     public function productCreate()
