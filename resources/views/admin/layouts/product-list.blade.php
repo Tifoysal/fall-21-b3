@@ -10,9 +10,11 @@
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">name</th>
+        <th scope="col">price</th>
+        <th scope="col">quentity</th>
+        <th scope="col">description</th>
+        <th scope="col">category</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +25,8 @@
                 <th>{{$product->price}}</th>
                 <th>{{$product->quentity}}</th>
                 <th>{{$product->description}}</th>
+                <th>{{$product->category->name}}</th>
+                
             </tr>
         @endforeach
     

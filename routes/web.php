@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
@@ -34,4 +35,9 @@ Route::group(['prefix'=>'admin-portal'],function(){
     Route::get('/employee/list',[EmployeeController::class,'list'])->name('employee.list');
     Route::get('/employee/create',[EmployeeController::class,'create'])->name('employee.create');
     Route::post('/employee/store',[EmployeeController::class,'store'])->name('employee.store');
+
+    // category
+    Route::get('/category/list',[CategoryController::class,'list'])->name('category.list');
+    Route::get('category/form',[CategoryController::class,'form'])->name('category.form');
+    Route::post('/category/add',[CategoryController::class,'add'])->name('category.add');
 });

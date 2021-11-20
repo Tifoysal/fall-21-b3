@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class ProductController extends Controller
 
     public function productCreate()
     {
-        return view('admin.layouts.product-create');
+        $categories = Category::with('category')->get();
+        return view('admin.layouts.product-create',compact('categories'));
 
     }
 
@@ -32,6 +34,7 @@ class ProductController extends Controller
             'price'=>$request->price,
             'quentity'=>$request->quantity,
             'description'=>$request->description,
+            'category_id'=>$request->category
             
 
         ]);

@@ -19,7 +19,18 @@
             <label for="exampleInputEmail1" class="form-label">Enter Product Quantity</label>
             <input name="quantity" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-        </div><div class="mb-3">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Category</label>
+            <select name="category" class="form-control" id="exampleFormControlSelect1">
+                @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option> 
+                @endforeach
+            </select>
+          </div>
+        
+        <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Enter Product Description</label>
             <input name="description" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
