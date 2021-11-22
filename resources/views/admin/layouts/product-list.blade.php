@@ -12,7 +12,7 @@
         <th scope="col">#</th>
         <th scope="col">name</th>
         <th scope="col">price</th>
-        <th scope="col">quentity</th>
+        <th scope="col">quantity</th>
         <th scope="col">description</th>
         <th scope="col">category</th>
     </tr>
@@ -26,11 +26,11 @@
                 <th>{{$product->quentity}}</th>
                 <th>{{$product->description}}</th>
                 <th>{{$product->category->name}}</th>
-                
+
             </tr>
         @endforeach
-    
-   
+
+
     </tbody>
 </table>
 @endsection

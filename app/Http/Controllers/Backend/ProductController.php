@@ -12,20 +12,28 @@ class ProductController extends Controller
 
     public function productList()
     {
-        $products= Product::all();
-        // dd($products);
+        $products= Product::with('category')->get();
+
         return view('admin.layouts.product-list',compact('products'));
     }
 
     public function productCreate()
     {
-        $categories = Category::with('category')->get();
+        $categories = Category::all();
         return view('admin.layouts.product-create',compact('categories'));
 
     }
 
     public function store(Request $request){
-        // dd($request->all());
+
+        $request->validate([
+            'name'=>'required',
+            'price'=>'required|numeric',
+            'quantity'=>'required|numeric',
+            'category_id'=>'required|numeric',
+            'description'=>'required'
+        ]);
+
 
         Product::create([
             // field name for DB || field name for form
@@ -34,11 +42,10 @@ class ProductController extends Controller
             'price'=>$request->price,
             'quentity'=>$request->quantity,
             'description'=>$request->description,
-            'category_id'=>$request->category
-            
+            'category_id'=>$request->category_id
 
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('msg','Product created successfully.');
     }
 
 
