@@ -4,6 +4,9 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Website\CategoryProductController;
+use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +19,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',[HomeController::class,'home'])->name('frontend.home');
+Route::post('/user/registration/post',[UserController::class,'userRegistration'])->name('user.registration');
+Route::post('/user/login/post',[UserController::class,'userlogin'])->name('user.do.login');
+Route::get('/user/logout',[UserController::class,'userLogout'])->name('user.logout');
+Route::get('/product/category',[CategoryProductController::class,'category'])->name('frontend.product.category');
+Route::get('/product/category/{id}',[CategoryProductController::class,'products'])->name('frontend.product.under.category');
 
-Route::get('/', function () {
-    return redirect()->route('admin');
-});
+
+
+
+// Route::get('/', function () {
+//     return redirect()->route('admin');
+// });
 
 
 Route::group(['prefix'=>'admin-portal'],function(){
