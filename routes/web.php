@@ -39,9 +39,13 @@ Route::group(['prefix'=>'admin-portal'],function(){
         return view('admin.master');
     })->name('admin');
     Route::get('/orders',[OrderController::class,'orderList'])->name('admin.orders');
+    
+    //product
     Route::get('/products',[ProductController::class,'productList'])->name('admin.products');
     Route::get('/products/create',[ProductController::class,'productCreate'])->name('admin.products.create');
     Route::post('/products/store',[ProductController::class,'store'])->name('admin.product.store');
+    Route::get('/product/edit/{id}',[ProductController::class,'productEdit'])->name('admin.product.edit');
+    Route::put('/product/update/{id}',[ProductController::class,'productUpdate'])->name('admin.product.update');
 
     // employee
     Route::get('/employee/list',[EmployeeController::class,'list'])->name('employee.list');

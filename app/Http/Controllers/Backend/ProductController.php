@@ -58,6 +58,35 @@ class ProductController extends Controller
         return redirect()->back()->with('msg','Product created successfully.');
     }
 
+    public function productEdit($id){
+        // dd($id);
+        $product = Product::find($id);
+        // dd($product);
+        $categories = Category::all();
+        if ($product) {
+            return view('admin.layouts.product-edit',compact('product','categories'));
+        }
+    }
+
+    public function productUpdate(Request $request,$id){
+        // dd($request->all());
+        // dd($id);
+        $product = Product::find($id);
+        // dd($product);
+        if ($product) {
+            $product->update([
+            // 'name'=>$request->name,
+            'price'=>$request->price,
+            'quentity'=>$request->quantity,
+            'description'=>$request->description,
+            'category_id'=>$request->category_id,
+            ]);
+
+            return redirect()->route('admin.products')->with('msg','Product updated!');
+        }
+
+    }
+
 
 
 }
