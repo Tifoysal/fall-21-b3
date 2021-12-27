@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function productList()
     {
         $products= Product::with('category')->get();
-
+        // dd($products);
         return view('admin.layouts.product-list',compact('products'));
     }
 
@@ -75,7 +75,7 @@ class ProductController extends Controller
         // dd($product);
         if ($product) {
             $product->update([
-            // 'name'=>$request->name,
+            'name'=>$request->name,
             'price'=>$request->price,
             'quentity'=>$request->quantity,
             'description'=>$request->description,
@@ -85,6 +85,14 @@ class ProductController extends Controller
             return redirect()->route('admin.products')->with('msg','Product updated!');
         }
 
+    }
+
+    public function productSearch(){
+        // dd(request()->all());
+        $key = request()->search;
+        $products = Product::where('name','LIKE',"%{$key}%")->get();
+        // dd($products);
+        return view('admin.layouts.search-product-list',compact('products'));
     }
 
 

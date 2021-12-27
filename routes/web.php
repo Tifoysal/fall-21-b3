@@ -34,7 +34,7 @@ Route::get('/product/category/{id}',[CategoryProductController::class,'products'
 // });
 
 
-Route::group(['prefix'=>'admin-portal'],function(){
+Route::group(['prefix'=>'admin'],function(){
     Route::get('/', function () {
         return view('admin.master');
     })->name('admin');
@@ -46,6 +46,7 @@ Route::group(['prefix'=>'admin-portal'],function(){
     Route::post('/products/store',[ProductController::class,'store'])->name('admin.product.store');
     Route::get('/product/edit/{id}',[ProductController::class,'productEdit'])->name('admin.product.edit');
     Route::put('/product/update/{id}',[ProductController::class,'productUpdate'])->name('admin.product.update');
+    Route::get('/product/search',[ProductController::class,'productSearch'])->name('admin.product.search');
 
     // employee
     Route::get('/employee/list',[EmployeeController::class,'list'])->name('employee.list');
